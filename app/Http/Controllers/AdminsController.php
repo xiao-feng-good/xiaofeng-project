@@ -47,7 +47,7 @@ class AdminsController extends Controller
             throw new AuthenticationException('改账号已被禁用,请联系管理员');
         }
 
-        $token = $admin->createToken('Admin', ['*'], now()->addDays(3))->plainTextToken;
+        $token = $admin->createToken('Admin', ['*'], now()->addDays(30))->plainTextToken;
         return response()->json($token);
     }
 }
