@@ -24,17 +24,8 @@ class AdminsController extends Controller
      * DateTime: 2023/5/25 14:37
      * @param AdminRegisterRequest $request
      */
-    public function register(/*AdminRegisterRequest $request*/)
+    public function register(AdminRegisterRequest $request)
     {
-        $videoPath = 'https://1254153797.vod2.myqcloud.com/41f91735vodsh1254153797/9a42dd79243791581828147662/UpIBfMJFURQA.mp4'; // 视频文件路径
-        $watermarkPath = 'path/to/watermark.png'; // 水印图片文件路径
-        $outputPath = 'path/to/output.mp4'; // 输出文件路径
-
-        $ffmpegCommand = "ffmpeg -i $videoPath -i $watermarkPath -filter_complex overlay=W-w-10:H-h-10 $outputPath";
-        exec($ffmpegCommand);
-
-
-
         $data = $request->validated();
         $member = [
             'name' => $data['name'],
